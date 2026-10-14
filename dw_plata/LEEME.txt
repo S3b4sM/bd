@@ -1,0 +1,17 @@
+CAPA PLATA (versión final) - ejecutar en pgAdmin (Query Tool) sobre la base delivery_oltp
+Requisito: capa bronce ya cargada.
+
+1. 01_plata_estructura.sql         -> abrir + F5
+   Crea el esquema plata: catálogo de 29 reglas, control de lotes, control de calidad,
+   cuarentena y las 12 tablas limpias. (Si ya existía plata, la borra y la vuelve a crear.)
+2. 02_plata_procedimiento.sql      -> abrir + F5
+   Crea el procedimiento plata.sp_cargar_plata().
+3. 03_plata_ejecutar_y_validar.sql -> seleccionar cada consulta y F5, una por una:
+   (A) CALL plata.sp_cargar_plata();     ~2-3 min, avances en la pestaña "Messages"
+   (B) conciliación bronce vs plata       (C) reporte de calidad por regla  <- captura para el documento
+   (D) límite IQR del lote                (E)(F) antes/después en cliente y comentarios
+   (G)(H) banderas del pedido             (I) ventas reales vs suma de pagos
+   (J) cuarentena                         (K) chequeo de datos personales (0 filas)
+   (L) prueba de cuarentena (opcional)
+No modifica public ni bronce (excepto la prueba L, que daña y repara 2 filas de bronce).
+Espacio: plata ocupa ~1,9 GB adicionales.

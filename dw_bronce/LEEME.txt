@@ -1,0 +1,8 @@
+CAPA BRONCE - ejecutar en pgAdmin (Query Tool) sobre la base delivery_oltp:
+1. 01_bronce_estructura.sql      -> abrir + F5 (crea esquema bronce, config y tablas)
+2. 02_bronce_procedimiento.sql   -> abrir + F5 (crea el procedimiento de carga)
+3. 03_bronce_ejecutar_y_validar.sql -> seleccionar cada consulta y F5, una por una:
+   (A) CALL bronce.sp_cargar_bronce();  ~1 min, mensajes en la pestaña "Messages"
+   (B)/(C) verificar que origen = bronce
+   (F) prueba de carga incremental (opcional)
+Espacio: bronce ocupa ~1,5 GB adicionales.
